@@ -1,5 +1,5 @@
 # Projeto Final - GCC 253
-===
+
 ## Membros do grupo
 * *Gabriel Martins Silva*
 * *Lucas Hideki Sekiya Nascimento*
