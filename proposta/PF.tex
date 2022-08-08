@@ -26,7 +26,7 @@
   
 \title{Nome do Projeto Final GCC253 - Complexidade e Projeto de Algorítmos} 
   
-\author{Autor1, Autor2, AutorN,. 
+\author{Gabriel Martins Silva, Lucas Hideki Sekiya Nascimento, Valter Granato Neto, Vanessa Luana Soares Corrêa. 
 \thanks{\centering \textbf{\textit{Complexidade e Pojeto de Algorítmos} -- \today \\ Prof. Douglas H. S. Abreu}}% 
 } 
   
@@ -41,10 +41,10 @@
   
 \begin{resumo} 
 %\textit{Reduzir, pois o resumo deve conter no máximo 100 palavras.}  
-Resumo do trabalho aqui e em português 
+Este trabalho é um estudo de uma aplicação de análise e estudo de construção de algoritmos para uma situação aplicada que resolve um problema do mundo real. Sendo feito estudos e observações nas literaturas disponíveis para fazer análise comparativa pela revisão das literaturas.  
 \end{resumo} 
 \begin{chave} 
-palavras chaves, algoritmos, complexidade. 
+algoritmos, complexidade, visão computacional, câmeras digitais, revisão bibliográfica, calibração. 
 \end{chave} 
   
 
@@ -55,43 +55,37 @@ palavras chaves, algoritmos, complexidade.
 \section{Introdução} 
 \label{sec:introducao} 
   
-Nesta seção o aluno deverá localizar o leitor sobre o tema que deseja desenvolver, esclarecer o assunto que será estudado, delimitar o foco da pesquisa, e situar o tema dentro do contexto geral de sua área de trabalho~\cite{cormen:2009}
+Assim como outros animais, os seres humanos possuem um par de olhos, cada um capturando uma imagem do ambiente. Essas imagens são “processadas” pelo cérebro e uma única imagem é gerada. Graças à pequena diferença entre as imagens captadas, obtêm-se a noção de profundidade e tridimensionalidade. A visão estéreo é um sistema de visão computacional que trabalha com a mesma ideia: capturar imagens sobrepostas com um pequeno deslocamento para reconstruir a informação do mundo tridimensional.
+Esse tipo de sistema passa por duas etapas: analisar as imagens geradas pelas câmeras e realizar a fusão das características analisadas; e, em conjunto com dados geométricos, calcular as coordenadas tridimensionais dos pontos que formam a imagem.
+Por ser um sistema com alta precisão e baixa taxa de erros, a visão estéreo é largamente utilizada para contar e identificar objetos. Entretanto, é necessário calibrar o sistema para obter essa precisão. Ao utilizar a auto-calibração, não é necessária a utilização de um objeto previamente conhecido, pois são utilizadas apenas capturas de imagens estáticas.
+~\cite{cormen:2009}
 
-O artigo está organizado da seguinte forma.
-A Seção~\ref{sec:justificativa} apresenta a XXX. 
-Os objetivos são apresentados na Seção~\ref{sec:objetivos}
+O presente artigo se encontra organizado da seguinte forma: na seção II é desenvolvida a justificativa~\ref{sec:justificativa} para a realização deste trabalho. Na seção III são expostos os objetivos que a serem alcançados~\ref{sec:objetivos}. Na seção IV é informada a metodologia que será utilizada~\ref{sec:metodologia}. Na última seção são apresentados os resultados esperados~\ref{sec:resultados_esperados}.
 . 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Justificativas}
 \label{sec:justificativa}
   
-Justificativa e relevância: Consiste na apresentação, de forma clara, objetiva e detalhada, das razões de ordem teórica ou prática que justificam a realização da pesquisa ou o tema proposto para avaliação inicial. A justificativa deve indicar a relevância e as contribuições do trabalho.
+Tendo em vista que a utilização desse sistema se deve a sua alta precisão, e que essa precisão depende da calibração adequada, faz-se necessário investigar os algoritmos e métodos que são utilizados para realização dessa calibração. 
+Um algoritmo inadequado pode tornar o sistema ineficiente, ou mesmo levar a geração de informações incorretas. A depender da aplicação, as consequências podem escalar de um prejuízo material de gasto excessivo de energia elétrica até perda da sincronização das câmeras caso haja excesso de processamento de instruções.
+
   
 \section{Objetivos}
 \label{sec:objetivos}
   
-Aqui o aluno deverá descrever o objetivo concreto da pesquisa que irá desenvolver: o que se vai procurar atingir ou buscar com esse trabalho. Nos objetivos da pesquisa cabe identificar claramente o problema e apresentar sua delimitação. 
+O objetivo deste trabalho é realizar uma revisão sistemática da literatura sobre técnicas de auto calibração em visão computacional com a finalidade de estudar os assuntos da disciplina como técnicas de análise e construção de algoritmos, para ter uma perspectiva aplicada dos temas estudados. 
 
 
 \section{Metodologia} 
 \label{sec:metodologia}
 
-Detalhar como o trabalho será desenvolvido, explicar as etapas e procedimentos que devem ser realizados para alcançar os objetivos do trabalho.
-Ex.: Citando uma figura. A Figura~\ref{fig:teste}
-
-\begin{figure}[htb]
-  \centering
-  \includegraphics[width=2.5in]{image1.pdf}
-  \caption{Caption da figura}
-  \label{fig:teste}
-\end{figure}
-
+O estudo será realizado como revisão sistemática da literatura de artigos que tenham proposto técnicas de auto calibração em visão computacional, visando facilitar melhores formas de calibração das câmeras para contagem precisas. Através dessas técnicas estudadas, propomos realizar cálculos de complexidade, definiremos algoritmos para serem comparados e implementados na linguagem de programação python.
 
 \section{Resultados Esperados}
-
-Descrever quais os resultados que são esperados com a realização dessa pesquisa. 
+\label{sec:resultados_esperados}
+Produzir dados que comprovem a complexidade dos algoritmos. Apresentar e explicar pontos positivos e negativos nas implementações encontradas nas literaturas. Compreender a respeito da área de aplicação dos algoritmos e técnicas vistas ao longo da disciplina.
   
 \bibliographystyle{plain} 
 \bibliography{ref}
-  
+DE MORAIS MADALENA, I.; MENOTTI, D. Auto-Calibração de Câmeras em Visão Estéreo. Disponível em: <http://www.decom.ufop.br/menotti/paa111/files/PCC104-111-ars-11.1-IsraelDeMoraisMadalena.pdf>.
 \end{document} 

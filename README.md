@@ -5,6 +5,5 @@
 * *Lucas Hideki Sekiya Nascimento*
 * *Valter Granato Neto*
 * *Vanessa Luana Soares Corrêa*
----
-## *Assunto:*
-### *Auto Calibração de Câmeras em Visão Estéreo*
+
+## *Assunto: Auto Calibração de Câmeras em Visão Estéreo*
