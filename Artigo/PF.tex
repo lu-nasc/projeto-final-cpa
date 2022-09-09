@@ -1,0 +1,106 @@
+%% ------------- Portuguese version ------------ 
+\documentclass[portuguese]{sbrt} 
+\usepackage[portuguese]{babel} 
+\usepackage[utf8]{inputenc} 
+\newtheorem{theorem}{Theorem} 
+\usepackage[T1]{fontenc} 
+\usepackage[pdftex]{hyperref} 
+\usepackage{graphicx,url} 
+\usepackage[hang]{subfigure} 
+\usepackage{psfrag} 
+\usepackage{comment} 
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+%% --------------------------------------------- 
+  
+%% If writing in English, remove the lines above 
+%% and uncomment the lines below 
+  
+%% ------------- English version --------------- 
+%\documentclass[english]{sbrt} 
+%\usepackage[english]{babel} 
+%\usepackage[utf8]{inputenc} 
+%\newtheorem{theorem}{Theorem} 
+%% --------------------------------------------- 
+  
+\begin{document} 
+  
+\title{Projeto Final GCC253 - Auto Calibração de Câmeras em Visão Estéreo} 
+  
+\author{Gabriel Martins Silva, Lucas Hideki Sekiya Nascimento, Valter Granato Neto, Vanessa Luana Soares Corrêa. 
+\thanks{\centering \textbf{\textit{Complexidade e Pojeto de Algorítmos} -- \today \\ Prof. Douglas H. S. Abreu}}% 
+} 
+  
+\maketitle 
+
+  
+\markboth{Projeto Final GCC253 - Complexidade e Projeto de Algorítmos - Departamento de Ciência da Computação (DCC) - Instituto de Ciências Exatas e Tecnológicas (ICET)- UFLA - 2022/1}{} 
+  
+  
+%% If writing in English, remove both 'resumo' and 'chave' 
+%% ------------- Portuguese version ------------ 
+  
+\begin{resumo} 
+%\textit{Reduzir, pois o resumo deve conter no máximo 100 palavras.}  
+O presente trabalho tem como objetivo estudar alguns métodos de auto-calibração para câmeras utilizadas em visão estéreo. A visão estéreo trabalha com a reconstrução da informação tridimensional de ambientes a partir de imagens capturadas por câmeras com campo de visão sobreposto. Uma vez que esse processo se baseia em captura de imagens, é necessário que as câmeras estejam devidamente calibradas para garantir a confiabilidade e precisão desse método
+\end{resumo} 
+\begin{chave} 
+algoritmos, complexidade, visão computacional, câmeras digitais, revisão bibliográfica, calibração. 
+\end{chave} 
+  
+
+%% --------------------------------------------- 
+  
+  
+
+\section{Introdução} 
+\label{sec:introducao} 
+  
+Dentro da computação, a visão estéreo é a área que estuda a reconstrução de dados tridimensionais a partir de imagens bidimensionais \cite{MadalenaMenotti:2020}. Esse tipo de visão está presente em diversos animais - em geral predadores - e baseia-se na comparação de duas imagens parecidas, porém com um pequeno deslocamento: cada olho capta uma imagem levemente diferente do outro. Essas imagens são processadas pelo cérebro e o animal, a partir das imagens bi-dimencionais captadas pelos olhos, consegue atribuir a noção de profundidade ao ambiente que está sendo visualizado.
+
+\newline
+Assim como nesses animais, a visão estéreo na computação passa pelas etapas de coleta de imagens e processamento: duas ou mais câmeras captam imagens de um mesmo ambiente, porém de posições diferentes. As imagens são analisadas e a partir delas pode-se recuperar informações tridimensionais daquele ambiente.
+ 
+\newline
+Essa concepção também é aplicada em projetos de realidade virtual para causar a ilusão de profundidade e tridimensionalidade, como podemos ver na figura 1
+\begin{wrapfigure}
+    \begin{center}
+        \centering
+	    \includegraphics[scale=0.8]{vr}
+	    \caption{Figura 1: Implementação de visão estéreo em óculos de realidade virtual}        
+    \end{center}
+\end{wrapfigure}
+
+\newline
+Tendo como base duas câmeras das quais se sabe a posição e o direcionamento, é possível calcular a posição de qualquer ponto dentro do campo de visão dessas câmeras, desde que esse ponto esteja em uma área sobreposta dentro dos campos de visão. Para calcular a posição do ponto é utilizada triangulação, é possível  verificar na figura 2
+
+\begin{wrapfigure}
+    \begin{center}
+        \centering
+	    \includegraphics[scale=1.0]{triangulação}
+	    \caption{Figura 2: triangulação de um ponto a partir de imagens sobrepostas na visão estéreo}        
+    \end{center}
+\end{wrapfigure}
+
+\newline
+A visão estéreo é largamente utilizada em sistemas de monitoramento, uma vez que possui uma alta precisão e seu custo de implementação é relativamente baixo. Entretanto, faz-se necessário um processo de calibração para garantir a precisão e qualidade desses sistemas. A auto-calibração é realizada utilizando capturas de cenas estáticas, se que se altere os parâmetros intrínsecos da câmera, dispensando o uso de objetos conhecidos previamente.
+
+\newline
+Este artigo se encontra organizado da seguinte forma: na seção II são descritos os parâmetros intrínsecos e extrínsecos das câmeras ~\ref{sec:parametros}. Na seção III são expostos os métodos de calibração propriamente ditos ~\ref{sec:metodos}. Na seção IV discute-se o desempenho dos métodos descritos na seção III ~\ref{sec:desempenho}. Na última seção são retomados os principais pontos abordados ao longo do artigo~\ref{sec:conclusao}.
+ 
+
+\section{Parâmetros intrínsecos e extrínsecos}
+\label{sec:parametros}
+  
+\section{Métodos de calibração}
+\label{sec:metodos}
+
+\section{Desempenho} 
+\label{sec:desempenho}
+
+\section{Conclusão}
+\label{sec:conclusao}
+\bibliographystyle{plain} 
+\bibliography{ref}
+
+\end{document} 
