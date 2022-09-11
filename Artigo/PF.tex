@@ -10,6 +10,7 @@
 \usepackage{psfrag} 
 \usepackage{comment} 
 \usepackage{graphicx}
+\usepackage{amsmath}
 \graphicspath{ {./images/} }
 %% --------------------------------------------- 
   
@@ -91,7 +92,33 @@ Este artigo se encontra organizado da seguinte forma: na seção II são descrit
 
 \section{Parâmetros intrínsecos e extrínsecos}
 \label{sec:parametros}
-  
+Os parametros necessários para realizar os calculos de calibração das camêras foram separados em dois grupos nomeados como parametros intrínsecos e extrínsecos. Sendo intrínsecos sendo referentes a paramêtros internos da camêra fotográfica, e extínsecos externos a camêra e especificamente aos dados da foto digital.
+
+\newline
+Lista de parametros intrínsecos:
+\begin{itemize}
+    \item • Distância focal: A distância focal em pixels.
+    \item • Ponto principal: coordenadas do ponto principal.
+    \item • Coeficiente de inclinação: define o ângulo entre os eixos x e y do pixel.
+    \item • Distorções: coeficientes de distorção de imagem (radial e tangencial).
+\end{itemize}
+
+\newline
+Lista de parametros extrínsecos:
+\begin{itemize}
+    \item • Rotação: Um conjunto de matrizes de rotação 3x3
+    \item • Translação: Um conjunto de vetores 3x1.
+\end{itemize}
+
+Fazendo parte da configuração e preparação para a execução dos algoritmos de calibração, é considerada um \textit{grid} com conjunto de coordenadas \{\mathrm{X,Y,Z}\} e uma matriz \textit{A} que representa a matrix intrínseca da câmera.
+  $$
+  A =
+  \begin{bmatrix}
+   \alpha & \gamma & u_{0}\\ 
+   0      & \beta  & v_{0}\\
+   0      & 0      & 1    
+  \end{bmatrix}
+  $$
 \section{Métodos de calibração}
 \label{sec:metodos}
 
