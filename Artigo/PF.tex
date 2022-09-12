@@ -126,24 +126,23 @@ Fazendo parte da configuração e preparação para a execução dos algoritmos 
 
 A maioria dos metodos de calibração existentes são baseados em algoritmos de
 calibração manual off-line para alvos ou padrões de referencia especificos
-o foco do nosso estudo está relacionado aos métodos tradicionais de calibração
+O foco do nosso estudo está relacionado aos métodos tradicionais de calibração
 O método de calibração tradicional pode calibrar com precisão os parâmetros da câmera
 utilizando alvos planos ou estéreos. 
 
 Métodos de modelo planar
-Esse metódo tem sido amplamente estudado por Zhang propôs calibrar a câmera com um tabuleiro de xadrex.
+Esse metódo tem sido amplamente estudado por Zhang \cite{Zhang:2000} propôs calibrar a câmera com um tabuleiro de xadrex.
 A câmera é necessária para visualizar o padrão quadriculado exibido em várias direções
 na qual deve identificar seus cantos em uma imagem e calcular toda a divisão do tabuleiro. 
 Com isso se tiver qualquer valor errado ou canto não detectado, insere no parâmetro de calibração o erro encontrado e uma nova calibração é feita.
 
 Métodos de calibração baseados em objetos 3D
-
-
- 
-
-
-
-
+Esse metodo simplifica o procedimento de calibração ao colocar o alvo no campo de visão da câmera uma vez que para obter os parâmetros de calibração.
+Su et ai \cite{Svoboda:2005}usaram um objeto de calibração esférica como padrão de referência especializado para calibrar os parâmetros geométricos entre qualquer número de câmeras testadas 
+Para realizar pode-se utilizar um ponto brilhante ou um ponto em que se destaque e esteja presente em todas as câmeras, para que a imagem seja reconstruída
+Para utilizar o método proposto por Su et al \cite{Svoboda:2005}, é necessário somente a matriz de dados W contendo os pontos da imagem.
+Este tipo de método gera resultados muito precisos, porém depende dos pontos diferentes que essa matriz irá conter
+Após a obtenção dessa matriz, procura-se os pontos semelhantes nas outras matrizes, o que é chamado de correspondência.
 
 
 \section{Desempenho} 
