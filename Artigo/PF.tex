@@ -147,9 +147,18 @@ Após a obtenção dessa matriz, procura-se os pontos semelhantes nas outras mat
 
 \section{Desempenho} 
 \label{sec:desempenho}
+observando os algoritmos de:
+* normalização:: que tem como objetivo de transformar o mapeamento das coordenadas da imagem invertida
+* inicialização da calibração dos parâmentros:: que consiste na coleta de dados camera, e configura de tal maneira que prepare para o algoritmo de otimização da calibração, buscando assim melhores condições de bons resultados do algoritmo.
+* otimização a não linear:é onde realmente é executado o algoritmo de calibração utilizando as otimizações feitas pelo preparo e tratamento prévios dos parâmetros.
+
+\section{Analise de complexidade}
+\label{sec:analise_complexidade}
 
 \section{Conclusão}
 \label{sec:conclusao}
+
+
 \bibliographystyle{plain} 
 \bibliography{ref}
 
