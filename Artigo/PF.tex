@@ -147,9 +147,25 @@ Após a obtenção dessa matriz, procura-se os pontos semelhantes nas outras mat
 
 \section{Desempenho} 
 \label{sec:desempenho}
+observando os algoritmos de:
+* normalização:: que tem como objetivo de transformar o mapeamento das coordenadas da imagem invertida
+* inicialização da calibração dos parâmentros:: que consiste na coleta de dados camera, e configura de tal maneira que prepare para o algoritmo de otimização da calibração, buscando assim melhores condições de bons resultados do algoritmo.
+* otimização a não linear:é onde realmente é executado o algoritmo de calibração utilizando as otimizações feitas pelo preparo e tratamento prévios dos parâmetros.
 
+\section{Analise de complexidade}
+\label{sec:analise_complexidade}
+Presente no artigo, o autor faz referência a dois trabalhos\ref{Zhang:2000} em que a analise de complexidade se dá em uma complexidade de $f(n) = 2O(n)$ e no trabalho[5]\ref{Svoboda:2005} a complexidade obtida foi de $f(n) = 100O(n^2)$ o que demonstra menos complexidade e melhores soluções nos dois primeiros trabalhos citados do que no terceiro. Nas palavras do autor do artigo, descreve de forma resumida as duas abordagens de diferentes complexidades na seguinte forma: "O método proposto por Zhang [3], [4] efetua a calibração
+individual da câmera usando a detecção de cantos em uma
+imagem planar. Utilizou-se para exemplificar o uso deste
+método imagens de um tabuleiro de xadrez.
+Svoboda et al. [5] propôs a calibração de sistemas multi-
+câmeras usando a detecção de um ponto principal em uma
+sequência de imagens, onde este ponto tem que ser comum
+em todas as imagens." \ref{MadalenaMenotti:2020}
 \section{Conclusão}
 \label{sec:conclusao}
+
+
 \bibliographystyle{plain} 
 \bibliography{ref}
 
