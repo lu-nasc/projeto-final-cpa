@@ -57,7 +57,7 @@ algoritmos, complexidade, visão computacional, câmeras digitais, revisão bibl
 \section{Introdução} 
 \label{sec:introducao} 
   
-Dentro da computação, a visão estéreo é a área que estuda a reconstrução de dados tridimensionais a partir de imagens bidimensionais \cite{MadalenaMenotti:2020}. Esse tipo de visão está presente em diversos animais - em geral predadores - e baseia-se na comparação de duas imagens parecidas, porém com um pequeno deslocamento: cada olho capta uma imagem levemente diferente do outro. Essas imagens são processadas pelo cérebro e o animal, a partir das imagens bi-dimencionais captadas pelos olhos, consegue atribuir a noção de profundidade ao ambiente que está sendo visualizado.
+Dentro da computação, a visão estéreo é a área que estuda a reconstrução de dados tridimensionais a partir de imagens bidimensionais \cite{MadalenaMenotti}. Esse tipo de visão está presente em diversos animais - em geral predadores - e baseia-se na comparação de duas imagens parecidas, porém com um pequeno deslocamento: cada olho capta uma imagem levemente diferente do outro. Essas imagens são processadas pelo cérebro e o animal, a partir das imagens bi-dimencionais captadas pelos olhos, consegue atribuir a noção de profundidade ao ambiente que está sendo visualizado.
 
 \newline
 Assim como nesses animais, a visão estéreo na computação passa pelas etapas de coleta de imagens e processamento: duas ou mais câmeras captam imagens de um mesmo ambiente, porém de posições diferentes. As imagens são analisadas e a partir delas pode-se recuperar informações tridimensionais daquele ambiente.
@@ -87,7 +87,7 @@ Tendo como base duas câmeras das quais se sabe a posição e o direcionamento, 
 A visão estéreo é largamente utilizada em sistemas de monitoramento, uma vez que possui uma alta precisão e seu custo de implementação é relativamente baixo. Entretanto, faz-se necessário um processo de calibração para garantir a precisão e qualidade desses sistemas. A auto-calibração é realizada utilizando capturas de cenas estáticas, se que se altere os parâmetros intrínsecos da câmera, dispensando o uso de objetos conhecidos previamente.
 
 \newline
-Este artigo se encontra organizado da seguinte forma: na seção II são descritos os parâmetros intrínsecos e extrínsecos das câmeras ~\ref{sec:parametros}. Na seção III são expostos os métodos de calibração propriamente ditos ~\ref{sec:metodos}. Na seção IV discute-se o desempenho dos métodos descritos na seção III ~\ref{sec:desempenho}. Na última seção são retomados os principais pontos abordados ao longo do artigo~\ref{sec:conclusao}.
+Este artigo se encontra organizado da seguinte forma: na seção II são descritos os parâmetros intrínsecos e extrínsecos das câmeras ~\ref{sec:parametros}. Na seção III são expostos os métodos de calibração propriamente ditos ~\ref{sec:tecnica_e_algoritmos}. Na seção IV diz sobre a técnica e algoritmos usados nos métodos descritos na seção III ~\ref{sec:desempenho}. Na última seção são retomados os principais pontos abordados ao longo do artigo~\ref{sec:conclusao}.
  
 
 \section{Parâmetros intrínsecos e extrínsecos}
@@ -97,10 +97,10 @@ Os parametros necessários para realizar os calculos de calibração das camêra
 \newline
 Lista de parametros intrínsecos:
 \begin{itemize}
-    \item • Distância focal: A distância focal em pixels.
-    \item • Ponto principal: coordenadas do ponto principal.
-    \item • Coeficiente de inclinação: define o ângulo entre os eixos x e y do pixel.
-    \item • Distorções: coeficientes de distorção de imagem (radial e tangencial).
+  \item • Distância focal: A distância focal em pixels.
+  \item • Ponto principal: coordenadas do ponto principal.
+  \item • Coeficiente de inclinação: define o ângulo entre os eixos x e y do pixel.
+  \item • Distorções: coeficientes de distorção de imagem (radial e tangencial).
 \end{itemize}
 
 \newline
@@ -131,42 +131,50 @@ O método de calibração tradicional pode calibrar com precisão os parâmetros
 utilizando alvos planos ou estéreos. 
 
 Métodos de modelo planar
-Esse metódo tem sido amplamente estudado por Zhang \cite{Zhang:2000} propôs calibrar a câmera com um tabuleiro de xadrex.
+Esse metódo tem sido amplamente estudado por Zhang \cite{Zhang} propôs calibrar a câmera com um tabuleiro de xadrex.
 A câmera é necessária para visualizar o padrão quadriculado exibido em várias direções
 na qual deve identificar seus cantos em uma imagem e calcular toda a divisão do tabuleiro. 
 Com isso se tiver qualquer valor errado ou canto não detectado, insere no parâmetro de calibração o erro encontrado e uma nova calibração é feita.
 
 Métodos de calibração baseados em objetos 3D
 Esse metodo simplifica o procedimento de calibração ao colocar o alvo no campo de visão da câmera uma vez que para obter os parâmetros de calibração.
-Su et ai \cite{Svoboda:2005}usaram um objeto de calibração esférica como padrão de referência especializado para calibrar os parâmetros geométricos entre qualquer número de câmeras testadas 
+Su et ai \cite{Svoboda}usaram um objeto de calibração esférica como padrão de referência especializado para calibrar os parâmetros geométricos entre qualquer número de câmeras testadas 
 Para realizar pode-se utilizar um ponto brilhante ou um ponto em que se destaque e esteja presente em todas as câmeras, para que a imagem seja reconstruída
-Para utilizar o método proposto por Su et al \cite{Svoboda:2005}, é necessário somente a matriz de dados W contendo os pontos da imagem.
+Para utilizar o método proposto por Su et al \cite{Svoboda}, é necessário somente a matriz de dados W contendo os pontos da imsagem.
 Este tipo de método gera resultados muito precisos, porém depende dos pontos diferentes que essa matriz irá conter
 Após a obtenção dessa matriz, procura-se os pontos semelhantes nas outras matrizes, o que é chamado de correspondência.
 
 
-\section{Desempenho} 
-\label{sec:desempenho}
-observando os algoritmos de:
-* normalização:: que tem como objetivo de transformar o mapeamento das coordenadas da imagem invertida
-* inicialização da calibração dos parâmentros:: que consiste na coleta de dados camera, e configura de tal maneira que prepare para o algoritmo de otimização da calibração, buscando assim melhores condições de bons resultados do algoritmo.
-* otimização a não linear:é onde realmente é executado o algoritmo de calibração utilizando as otimizações feitas pelo preparo e tratamento prévios dos parâmetros.
+\section{Técnica e algoritmos} 
+\label{sec:tecnica_e_algoritmos}
+Em \cite{MadalenaMenotti} são apresentados e explicados os algoritmos de:
+\begin{itemize}
+  \newline
+  \item • Normalização: que tem como objetivo de transformar o mapeamento das coordenadas da imagem invertida assim criando dados de ditância como refência para outras camerâs referenciarem o tabuleiro na imagem normalizada.
+  \newline
+  \item • Inicialização da calibração dos parâmetros: Que consiste no uso dos dados coletados pela camera, e modelar as variáveis de tal maneira que prepare para o algoritmo de otimização da calibração, buscando assim melhores condições de bons resultados do algoritmo. Percebendo então que as variáveis tem maior impacto na complexidade.
+  \newline
+  \item • Otimização a não linear: É o trecho que descreve o algoritmo de calibração utilizando as otimizações feitas pelo preparo e tratamento prévios dos parâmetros.   
+\end{itemize}
+\newline
+A otimização não linear é feita para um algoritmo que se inspita na reconstrução 3D a partir da captura de um sistema multicamera em visão estéreo. O que nas palavras do autor pode ser exemplificadas como: \cite["... Por exemplo, se deseja obter todos os pontos do corpo humano, quanto maior o número de câmeras utilizadas, mais preciso será a representação requerida."]{MadalenaMenotti}
 
 \section{Analise de complexidade}
 \label{sec:analise_complexidade}
-Presente no artigo, o autor faz referência a dois trabalhos\ref{Zhang:2000} em que a analise de complexidade se dá em uma complexidade de $f(n) = 2O(n)$ e no trabalho[5]\ref{Svoboda:2005} a complexidade obtida foi de $f(n) = 100O(n^2)$ o que demonstra menos complexidade e melhores soluções nos dois primeiros trabalhos citados do que no terceiro. Nas palavras do autor do artigo, descreve de forma resumida as duas abordagens de diferentes complexidades na seguinte forma: "O método proposto por Zhang [3], [4] efetua a calibração
+Presente no artigo, o autor faz referência a dois trabalhos\cite{Zhang} em que a analise de complexidade se dá em uma complexidade de $f(n) = 2O(n)$ e no trabalho[5]\cite{Svoboda} a complexidade obtida foi de $f(n) = 100O(n^2)$ o que demonstra menos complexidade e melhores soluções nos dois primeiros trabalhos citados do que no terceiro. Nas palavras do autor do artigo, descreve de forma resumida as duas abordagens de diferentes complexidades na seguinte forma: "O método proposto por Zhang [3], [4] efetua a calibração
 individual da câmera usando a detecção de cantos em uma
 imagem planar. Utilizou-se para exemplificar o uso deste
 método imagens de um tabuleiro de xadrez.
 Svoboda et al. [5] propôs a calibração de sistemas multi-
 câmeras usando a detecção de um ponto principal em uma
 sequência de imagens, onde este ponto tem que ser comum
-em todas as imagens." \ref{MadalenaMenotti:2020}
+em todas as imagens." \cite{MadalenaMenotti}
+
 \section{Conclusão}
 \label{sec:conclusao}
-
+O grupo percebe com este trabalho a importancia do tema que pode expandir muitos horizontes da constituição ou reconstituição de objetos tridimensionais a partir de capturas bidimensionais dos mesmos. Com relação aos resultados de complexidade dos algoritmos abordados apesar de terem sido de diferencias consideraveis onde a abordagem de \cite{Zhang} demonstra menor complexidade, o mesmo possui maior margem de erro, enquanto o trabalho de \cite{Svoboda} demonstra melhores resultados de precisão apesar da alta complexidade. 
 
 \bibliographystyle{plain} 
-\bibliography{ref}
+\bibliography{reference}
 
 \end{document} 
